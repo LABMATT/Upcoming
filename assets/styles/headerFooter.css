@@ -1,6 +1,6 @@
 #headerDiv {
     
-    background: rgba(100,100,100, 0.6);
+    background: rgba(50,50,50, 0.7);
     
     padding: 2%;
     
@@ -9,21 +9,20 @@
 
 #headderText {
     
+    color: white;
     margin: 0%;
 }
 
 
 #footerDiv {
     
-    background-color: rgba(100,100,100, 0.6);
+    background: rgba(50,50,50, 0.7);
     
     margin-top: 0.5em;
     padding: 1%;
     border-radius: 0px 0px 16px 16px;
     
     text-align: center;
-    
-    padding-bottom: 1000%;
 }
 
 #footerText {

@@ -14,7 +14,10 @@
         <!-- Include nesscary css files. -->
         <link rel="stylesheet" type="text/css" href="assets/styles/body.css">
         <link rel="stylesheet" type="text/css" href="assets/styles/event.css">
-        <link rel="stylesheet" type="text/css" href="assets/styles/headerTitle.css">
+        <link rel="stylesheet" type="text/css" href="assets/styles/headerFooter.css">
+        <link rel="stylesheet" type="text/css" href="assets/styles/subEvent.css">
+        <link rel="stylesheet" type="text/css" href="assets/styles/eventInfo.css">
+        <link rel="stylesheet" type="text/css" href="assets/styles/eventSubEventInfo.css">
 
 
     </head>
@@ -22,6 +25,7 @@
     <!-- Main Html Body, setup some basic things with init -->
     <body id="body" onload="init()">
 
+        <!-- Background image, Becasuse its blured and we want it static we use a div. Other resultys dont allow blur to scroll with page.-->
         <div id="background"></div>
 
         <div id="MainContent">
@@ -38,6 +42,28 @@
 
                 <div class="event">
 
+                    <div class="event-date">
+                        <p class="subevent-text-complmenty">Monday</p>
+                        <h2 class="subevent-text-main">12</h2>
+                        <p class="subevent-text-complmenty">April</p>
+                    </div>
+
+                    <div class="event-info">
+                        <div><h2 class="event-info-header-text">Event Title</h2></div>
+                        <div><p>Event Info</p></div>
+                        <div class="event-info-footer">
+                            <p class="event-info-footer-text">Event Location</p>
+                            <p class="event-info-footer-text">Event Exact Date</p>
+                            <p class="event-info-footer-text">Posted By</p>
+                        </div>
+                    </div>
+
+                    <div class="event-countdown">
+                        <p class="subevent-text-complmenty">IN</p>
+                        <h2 class="subevent-text-main">5</h2>
+                        <p class="subevent-text-complmenty">Days</p>
+                    </div>
+
                 </div>
 
             </div>
@@ -48,7 +74,7 @@
                 <p id="footerText">END OF EVENTS</p>
             </div>
         </div>
-        
-        
+
+
     </body>
 </html>

@@ -2,12 +2,11 @@
 
     background-color: white;
 
-    padding: 2%;
     margin-top: 0.5em;
 
     display: grid;
     
-    grid-template-columns: auto;
+    grid-template-columns: 10em auto 10em;
     grid-template-rows: auto;
     
 }
