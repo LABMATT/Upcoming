@@ -1,0 +1,37 @@
+body {
+    
+    background-color: black;
+    
+    height: 100vh;
+    margin: 0%;
+    
+    font-family: Arial;
+    color: white;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+#background {
+    
+    background-color: black;
+    background-image: url("../image/mattKane.jpg");
+    
+    background-position: center;
+    background-size: cover;
+
+    height: 100%;
+    
+    filter: blur(8px);
+    
+    position: sticky;
+    
+}
+
+#MainContent {
+    
+    position: absolute;
+    
+    display: flex;
+    flex-direction: column;
+}

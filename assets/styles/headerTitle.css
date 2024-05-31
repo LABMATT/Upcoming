@@ -1,0 +1,32 @@
+#headerDiv {
+    
+    background: rgba(100,100,100, 0.6);
+    
+    padding: 2%;
+    
+    border-radius: 16px 16px 0px 0px;
+}
+
+#headderText {
+    
+    margin: 0%;
+}
+
+
+#footerDiv {
+    
+    background-color: rgba(100,100,100, 0.6);
+    
+    margin-top: 0.5em;
+    padding: 1%;
+    border-radius: 0px 0px 16px 16px;
+    
+    text-align: center;
+    
+    padding-bottom: 1000%;
+}
+
+#footerText {
+    
+    margin: 0%;
+}
