@@ -1,31 +1,40 @@
 .event-date {
-    
+
     background-color: red;
     padding: 1%;
-    
+
     text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
 }
 
 .event-info {
-    
+
     background-color: green;
 }
 
 .event-countdown {
-    
+
     background-color: blue;
     padding: 1%;
-    
+
     text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
 }
 
 .subevent-text-main {
-    
-    margin: 0.5em;
+
+    margin: 0;
 }
 
 .subevent-text-complmenty {
-    
-    margin: 0.5em;
+
+    margin: 0;
 }
