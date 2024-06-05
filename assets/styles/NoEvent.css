@@ -1,0 +1,17 @@
+#noEvents {
+    
+    background: rgba(100, 100, 100, 0.8);
+    
+    margin-top: 0.5em;
+    padding: 2%;
+    
+    display: flex;
+    flex-direction: column;
+    
+    align-content: center;
+    text-align: center;
+}
+
+#noEvents-text {
+
+}

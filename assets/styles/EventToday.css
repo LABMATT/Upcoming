@@ -1,6 +1,6 @@
-.event-date {
+.eventToday-date {
 
-    background-color: red;
+    background-color: rgba(240, 110, 0, 1);
     padding: 1%;
 
     text-align: center;
@@ -9,16 +9,20 @@
     flex-direction: column;
     justify-content: space-around;
 
+    min-height: 8em;
+
 }
 
-.event-info {
+.eventToday-info {
 
-    background-color: green;
+    background-color: rgba(230,100,0, 1);
+    display: flex;
+    flex-direction: column;
 }
 
-.event-countdown {
+.eventToday-countdown {
 
-    background-color: blue;
+    background-color: rgba(240, 110, 0, 1);
     padding: 1%;
 
     text-align: center;
@@ -27,14 +31,4 @@
     flex-direction: column;
     justify-content: space-around;
 
-}
-
-.subevent-text-main {
-
-    margin: 0;
-}
-
-.subevent-text-complmenty {
-
-    margin: 0;
 }

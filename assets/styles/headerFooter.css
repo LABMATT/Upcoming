@@ -1,11 +1,17 @@
 #headerDiv {
     
-    background: rgba(50,50,50, 0.7);
+    background: rgba(10,10,10, 0.7);
     
     padding: 2%;
     
     border-radius: 16px 16px 0px 0px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
 }
+
 
 #headderText {
     
@@ -14,18 +20,53 @@
 }
 
 
+#header-timedate {
+
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: end;
+
+    color: rgb(255, 255, 255, 0.5);
+}
+
+
 #footerDiv {
     
     background: rgba(50,50,50, 0.7);
     
     margin-top: 0.5em;
+    margin-bottom: 6%;
     padding: 1%;
     border-radius: 0px 0px 16px 16px;
     
     text-align: center;
 }
 
+
 #footerText {
     
     margin: 0%;
+}
+
+#footerShowPrev {
+
+    border-radius: 1px;
+
+    color: white;
+    background-color: transparent;
+
+    border: solid 1px rgba(0,0,0, 0.4);
+
+    margin-top: 0.5em;
+}
+
+#footerShowPrev:hover {
+
+    border-radius: 1px;
+
+    color: black;
+    background-color: rgba(255,255,255, 1);
+
+    transition-duration: 0.4s;
+
 }

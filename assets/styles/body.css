@@ -40,3 +40,30 @@ body {
 
     padding: 5%;
 }
+
+
+#settingsButton {
+
+    width: 2em;
+    opacity: 0.5;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgb(30,30,30);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(70, 70, 70);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: red;
+}

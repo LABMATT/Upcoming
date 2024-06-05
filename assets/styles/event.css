@@ -1,12 +1,55 @@
 .event {
 
-    background-color: white;
-
     margin-top: 0.5em;
 
     display: grid;
     
     grid-template-columns: 10em auto 10em;
     grid-template-rows: auto;
-    
+}
+
+
+.event-date {
+
+    background-color: rgba(60,60,60, 0.8);
+    padding: 1%;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    min-height: 8em;
+
+}
+
+.event-info {
+
+    background-color: rgba(40,40,40, 0.8);
+    display: flex;
+    flex-direction: column;
+}
+
+.event-countdown {
+
+    background-color: rgba(60,60,60, 0.8);
+    padding: 1%;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.subevent-text-main {
+
+    margin: 0;
+}
+
+.subevent-text-complmenty {
+
+    margin: 0;
 }

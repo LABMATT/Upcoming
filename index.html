@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- Inportnet info -->
         <title>Events</title>
@@ -10,14 +10,20 @@
 
         <!-- Include nessary script files. -->
         <script type="text/javascript" src="assets/scripts/init.js"></script>
+        <script type="text/javascript" src="assets/scripts/Clock.js"></script>
+        <script type="text/javascript" src="assets/scripts/AutoScroll.js"></script>
+        <script type="text/javascript" src="assets/scripts/EntryBuilder/EB_eventToday_date.js"></script>
+        <script type="text/javascript" src="assets/scripts/EntryBuilder/EB_eventToday_info.js"></script>
 
         <!-- Include nesscary css files. -->
         <link rel="stylesheet" type="text/css" href="assets/styles/body.css">
-        <link rel="stylesheet" type="text/css" href="assets/styles/event.css">
+        <link rel="stylesheet" type="text/css" href="assets/styles/Event.css">
         <link rel="stylesheet" type="text/css" href="assets/styles/headerFooter.css">
-        <link rel="stylesheet" type="text/css" href="assets/styles/subEvent.css">
+        <link rel="stylesheet" type="text/css" href="assets/styles/EventToday.css">
         <link rel="stylesheet" type="text/css" href="assets/styles/eventInfo.css">
         <link rel="stylesheet" type="text/css" href="assets/styles/eventSubEventInfo.css">
+        <link rel="stylesheet" type="text/css" href="assets/styles/NoEvent.css">
+        <link rel="stylesheet" type="text/css" href="assets/styles/EventCanceled.css">
 
 
     </head>
@@ -30,10 +36,154 @@
 
         <div id="MainContent">
 
-            <!-- Displays the top heading and what events are for. -->
-            <div id="headerDiv">
+        <!-- Displays the top heading and what events are for. -->
+        <div id="headerDiv">
 
-                <h1 id="headderText">Upcoming events at MERNDA CFA</h1>
+            <h1 id="headderText">Upcoming events at MERNDA CFA</h1>
+
+            <h2 id="header-timedate">--:--</h2>
+
+        </div>
+
+
+        <div id="listedEvents">
+
+        <div class="event">
+
+            <div class="eventToday-date">
+                <p class="subevent-text-complmenty">Monday</p>
+                <h2 class="subevent-text-main">12</h2>
+                <p class="subevent-text-complmenty">April</p>
+            </div>
+
+            <div class="eventToday-info">
+                <div><h2 class="event-info-header-text">Event Title</h2></div>
+                <div><p class="event-info-time">7am - 8am</p></div>
+                <div class="event-info-text"><p>Event Info</p></div>
+                <div class="event-info-footer">
+                    <p class="event-info-footer-text">Event Location</p>
+                    <p class="event-info-footer-text">Event Exact Date</p>
+                    <p class="event-info-footer-text">Last updated: 2/6/24 - Matthew Lewington</p>
+                </div>
+            </div>
+
+            <div class="eventToday-countdown">
+
+                <h2 class="subevent-text-main">Today</h2>
+
+            </div>
+
+        </div>
+
+        <div id="listedEvents">
+
+        <div class="event">
+
+            <div class="event-date">
+                <p class="subevent-text-complmenty">Monday</p>
+                <h2 class="subevent-text-main">12</h2>
+                <p class="subevent-text-complmenty">April</p>
+            </div>
+
+            <div class="event-info">
+                <div><h2 class="event-info-header-text">Event Title</h2></div>
+                <div class="event-info-text"><p>Event Info</p></div>
+                <div class="event-info-footer">
+                    <p class="event-info-footer-text">Event Location</p>
+                    <p class="event-info-footer-text">Event Exact Date</p>
+                    <p class="event-info-footer-text">Posted By</p>
+                </div>
+            </div>
+
+            <div class="event-countdown">
+                <p class="subevent-text-complmenty">IN</p>
+                <h2 class="subevent-text-main">5</h2>
+                <p class="subevent-text-complmenty">Days</p>
+            </div>
+
+        </div>
+
+        <div id="listedEvents">
+
+        <div class="event">
+
+            <div class="event-date">
+                <p class="subevent-text-complmenty">Monday</p>
+                <h2 class="subevent-text-main">12</h2>
+                <p class="subevent-text-complmenty">April</p>
+            </div>
+
+            <div class="event-info">
+                <div><h2 class="event-info-header-text">Event Title</h2></div>
+                <div class="event-info-text"><p>Event Info</p></div>
+                <div class="event-info-footer">
+                    <p class="event-info-footer-text">Event Location</p>
+                    <p class="event-info-footer-text">Event Exact Date</p>
+                    <p class="event-info-footer-text">Posted By</p>
+                </div>
+            </div>
+
+            <div class="event-countdown">
+                <p class="subevent-text-complmenty">IN</p>
+                <h2 class="subevent-text-main">5</h2>
+                <p class="subevent-text-complmenty">Days</p>
+            </div>
+
+        </div>
+
+        <div id="listedEvents">
+
+        <div class="event">
+
+            <div class="event-date">
+
+                <h2 class="subevent-text-main">TBC</h2>
+
+            </div>
+
+            <div class="event-info">
+                <div><h2 class="event-info-header-text">Event Title</h2></div>
+                <div class="event-info-text"><p>Event Info</p></div>
+                <div class="event-info-footer">
+                    <p class="event-info-footer-text">Event Location</p>
+                    <p class="event-info-footer-text">Event Exact Date</p>
+                    <p class="event-info-footer-text">Posted By</p>
+                </div>
+            </div>
+
+            <div class="event-countdown">
+                <p class="subevent-text-complmenty">IN</p>
+                <h2 class="subevent-text-main">5</h2>
+                <p class="subevent-text-complmenty">Days</p>
+            </div>
+
+        </div>
+
+        <div id="listedEvents">
+
+            <div class="event">
+
+                <div class="event-date">
+                    <p class="subevent-text-complmenty">Monday</p>
+                    <h2 class="subevent-text-main">12</h2>
+                    <p class="subevent-text-complmenty">April</p>
+                </div>
+
+                <div class="event-info">
+                    <div><h2 class="event-info-header-text">Event Title</h2></div>
+                    <div class="event-info-text"><p>Event Info</p></div>
+                    <div class="event-info-footer">
+                        <p class="event-info-footer-text">Event Location</p>
+                        <p class="event-info-footer-text">Event Exact Date</p>
+                        <p class="event-info-footer-text">Posted By</p>
+                    </div>
+                </div>
+
+                <div class="event-countdown">
+                    <p class="subevent-text-complmenty">IN</p>
+                    <h2 class="subevent-text-main">5</h2>
+                    <p class="subevent-text-complmenty">Days</p>
+                </div>
 
             </div>
 
@@ -42,28 +192,34 @@
 
                 <div class="event">
 
-                    <div class="event-date">
+                    <div class="eventCanceled-date">
                         <p class="subevent-text-complmenty">Monday</p>
-                        <h2 class="subevent-text-main">12</h2>
+                        <h2 class="subevent-text-main">16</h2>
                         <p class="subevent-text-complmenty">April</p>
                     </div>
 
-                    <div class="event-info">
+                    <div class="eventCanceled-info">
                         <div><h2 class="event-info-header-text">Event Title</h2></div>
-                        <div><p>Event Info</p></div>
+                        <div><p class="event-info-text">Event Info</p></div>
                         <div class="event-info-footer">
-                            <p class="event-info-footer-text">Event Location</p>
+                            <p class="event-info-footer-text">MERNDA CFA - 79 Schotters Rd, Mernda VIC 3754</p>
                             <p class="event-info-footer-text">Event Exact Date</p>
                             <p class="event-info-footer-text">Posted By</p>
                         </div>
                     </div>
 
-                    <div class="event-countdown">
-                        <p class="subevent-text-complmenty">IN</p>
-                        <h2 class="subevent-text-main">5</h2>
-                        <p class="subevent-text-complmenty">Days</p>
+                    <div class="eventCanceled-countdown">
+                        <p class="subevent-text-complmenty"></p>
+                        <h2 class="subevent-text-main">CANCELED</h2>
+                        <p class="subevent-text-complmenty"></p>
                     </div>
 
+                </div>
+
+
+                <!-- If there are no events then display this. -->
+                <div id="noEvents">
+                    <h2 id="noEvents-text">No upcoming events</h2>
                 </div>
 
             </div>
@@ -72,9 +228,12 @@
             <!-- Footer rounds off the bottom. -->
             <div id="footerDiv">
                 <p id="footerText">END OF EVENTS</p>
+                <button id="footerShowPrev">Show perviuos events.</button>
             </div>
         </div>
 
 
     </body>
+
+    <img id="settingsButton" src="assets/image/gear-solid.svg">
 </html>
