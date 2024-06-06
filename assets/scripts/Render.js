@@ -1,11 +1,15 @@
 // Renders an entry recived by ther server.
 function RenderEntry(jsonData) {
 
-    const entryID = "eventEntry_" + jsondata.data.id;
+    //jsonData = JSON.parse(jsonData);
 
-    if (jsonData.entry !== "" || jsonData.entry !== null) {
+    console.log("Json" + jsonData);
 
-        // Create Div for the event
+    if (jsonData.data !== "" || jsonData.data !== null) {
+
+        const entryID = "eventEntry_" + jsonData.data.id;
+
+        // Create Div for the EVENT
         const eventDiv = document.createElement("div");
         eventDiv.classList.add("event");
         eventDiv.id = entryID;
@@ -16,5 +20,13 @@ function RenderEntry(jsonData) {
         // Add event to main event list.
         const eventToday_info = EB_eventTodayInfo(jsonData);
 
+        // Adds eventToday-countdown
+        const eventToday_countdown = EB_eventTodayCountdown(jsonData);
+
+
+        eventDiv.append(eventToday_date);
+        eventDiv.append(eventToday_info);
+        eventDiv.append(eventToday_countdown);
+        document.getElementById("listedEvents").append(eventDiv);
     }
 }
