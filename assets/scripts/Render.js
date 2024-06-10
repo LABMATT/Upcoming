@@ -8,6 +8,7 @@ function RenderEntry(jsonData) {
     if (jsonData.data !== "" || jsonData.data !== null) {
 
         const entryID = "eventEntry_" + jsonData.data.id;
+        console.log("ID IS: " + jsonData.data.id);
 
         // Create Div for the EVENT
         const eventDiv = document.createElement("div");

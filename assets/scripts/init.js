@@ -8,8 +8,10 @@ function init() {
     const jsonData = {
         "data": {
             "id": "tempID",
+            "type": "",
             "status": "live",
-            "date": "5/5/5",
+            "date": "2024-6-30",
+            "unixtimestamp": "11",
             "title": "Test Entry",
             "time": "9am",
             "locationTitle": "Mernda cfa",
