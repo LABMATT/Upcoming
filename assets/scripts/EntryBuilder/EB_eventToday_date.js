@@ -1,5 +1,17 @@
-function EB_eventTodayDate(jsonData) {
+function EB_eventTodayDate(jsonData, daysTillEvent) {
     
+    let colourType = "event-date";
+
+    if(daysTillEvent === 0) {
+
+        colourType = "eventToday-date";
+    }
+
+    if(jsonData.data.status === "cancel") {
+
+        colourType = "eventCanceled-date";
+    }
+
     // Works out the maths inorder to formate the event date section.
     const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -28,7 +40,7 @@ function EB_eventTodayDate(jsonData) {
 
     // Create Div for the eventToday-date
     const eventTodayDate = document.createElement("div");
-    eventTodayDate.classList.add("eventToday-date");
+    eventTodayDate.classList.add(colourType);
     
     // Create p for the date
     const eventDayP = document.createElement("p");
