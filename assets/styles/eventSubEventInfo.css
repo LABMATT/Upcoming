@@ -9,6 +9,11 @@
     padding-left: 0.8em;
 }
 
+.event-info-text-data {
+
+    margin: 0;
+}
+
 .event-info-footer {
 
     border-top: 1px solid black;

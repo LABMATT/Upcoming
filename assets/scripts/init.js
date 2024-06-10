@@ -22,4 +22,6 @@ function init() {
     };
 
     RenderEntry(jsonData);
+    RenderEntry(jsonData);
+    RenderEntry(jsonData);
 }

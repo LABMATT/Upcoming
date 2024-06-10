@@ -14,6 +14,7 @@ function RenderEntry(jsonData) {
         eventDiv.classList.add("event");
         eventDiv.id = entryID;
 
+
         // Sets up a DIV that displays date and day.
         const eventToday_date = EB_eventTodayDate(jsonData);
 
@@ -24,6 +25,8 @@ function RenderEntry(jsonData) {
         const eventToday_countdown = EB_eventTodayCountdown(jsonData);
 
 
+        // Add all events to the newly created Event Div.
+        // Add newly created Event Div to the ListedEvents div/id.
         eventDiv.append(eventToday_date);
         eventDiv.append(eventToday_info);
         eventDiv.append(eventToday_countdown);
