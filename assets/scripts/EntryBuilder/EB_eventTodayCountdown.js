@@ -10,8 +10,8 @@ function EB_eventTodayCountdown(jsonData, daysTillEvent) {
         daysTillEventText = "Today";
         colourType = "eventToday-countdown";
     }
-    
-    if(jsonData.data.status === "cancel") {
+
+    if (jsonData.data.status === "cancel") {
 
         colourType = "eventCanceled-countdown";
         daysTillEventText = "CANCELLED";
@@ -24,13 +24,15 @@ function EB_eventTodayCountdown(jsonData, daysTillEvent) {
 
 
     // Creates the word IN at the top of the countdown.
-    if (daysTillEvent !== 0 && jsonData.data.status !== "cancel") {
+    if (jsonData.data.status !== "cancel") {
+        if (daysTillEvent !== 0) {
 
-        const countdownIN = document.createElement("p");
-        const countdownINtxt = document.createTextNode("IN");
-        countdownIN.classList.add("subevent-text-complmenty");
-        countdownIN.append(countdownINtxt);
-        eventDiv.append(countdownIN);
+            const countdownIN = document.createElement("p");
+            const countdownINtxt = document.createTextNode("IN");
+            countdownIN.classList.add("subevent-text-complmenty");
+            countdownIN.append(countdownINtxt);
+            eventDiv.append(countdownIN);
+        }
     }
 
     // Create number of days till event.
@@ -42,13 +44,15 @@ function EB_eventTodayCountdown(jsonData, daysTillEvent) {
 
 
     // Creates the word "days" at the bottom of the countdown.
-    if (daysTillEvent !== 0 && jsonData.data.status !== "cancel") {
+    if (jsonData.data.status !== "cancel") {
+        if (daysTillEvent !== 0) {
 
-        const countdownDays = document.createElement("p");
-        const countdowndDaystext = document.createTextNode("Days");
-        countdownDays.classList.add("subevent-text-complmenty");
-        countdownDays.append(countdowndDaystext);
-        eventDiv.append(countdownDays);
+            const countdownDays = document.createElement("p");
+            const countdowndDaystext = document.createTextNode("Days");
+            countdownDays.classList.add("subevent-text-complmenty");
+            countdownDays.append(countdowndDaystext);
+            eventDiv.append(countdownDays);
+        }
     }
 
     return eventDiv;

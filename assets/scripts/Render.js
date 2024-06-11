@@ -13,7 +13,19 @@ function RenderEntry(jsonData, daysTillEvent) {
         // This section does all the calculations for the countdown.
         const date = new Date(jsonData.data.date);
         const dateNow = new Date();
-        const daysTillEvent = Math.abs(Math.round((dateNow.getTime() - date.getTime()) / (1000 * 3600 * 24)));
+        let daysTillEvent = Math.abs(Math.round((dateNow.getTime() - date.getTime()) / (1000 * 3600 * 24))) + 1;
+
+        // If the date is the same then days to is 0
+        if(date.getDate() === dateNow.getDate()) {
+
+            daysTillEvent = 0;
+        }
+
+
+        console.log("ID: " + jsonData.data.id);
+        console.log("Count: " + daysTillEvent);
+        console.log(" ");
+
 
         // Create Div for the EVENT
         const eventDiv = document.createElement("div");
