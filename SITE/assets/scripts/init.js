@@ -10,7 +10,7 @@ function init() {
             "id": "idone",
             "type": "",
             "status": "live",
-            "date": "2024-6-11",
+            "date": "2024-6-10",
             "unixtimestamp": "11",
             "title": "Test Entry",
             "time": "8am - 9pm",

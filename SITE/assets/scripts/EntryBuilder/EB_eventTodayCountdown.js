@@ -1,9 +1,11 @@
 // Event today countdown
-function EB_eventTodayCountdown(jsonData, daysTillEvent) {
+function EB_eventTodayCountdown(jsonData, daysTillEvent, isPassed) {
 
     // Decides text to display
     let colourType = "event-countdown";
     let daysTillEventText = daysTillEvent;
+    let inORsince = "IN";
+    let daysOR = "Days";
 
     if (daysTillEvent === 0) {
 
@@ -15,6 +17,10 @@ function EB_eventTodayCountdown(jsonData, daysTillEvent) {
 
         colourType = "eventCanceled-countdown";
         daysTillEventText = "CANCELLED";
+    }
+
+    if(isPassed) {
+
     }
 
 

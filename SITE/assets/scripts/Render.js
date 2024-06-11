@@ -14,6 +14,13 @@ function RenderEntry(jsonData, daysTillEvent) {
         const date = new Date(jsonData.data.date);
         const dateNow = new Date();
         let daysTillEvent = Math.abs(Math.round((dateNow.getTime() - date.getTime()) / (1000 * 3600 * 24))) + 1;
+        let isPassed = false;
+
+        if(dateNow.getTime() > date.getTime()) {
+
+            daysTillEvent = Math.round((dateNow.getTime() - date.getTime()) / (1000 * 3600 * 24)) - 1;
+            isPassed = true;
+        }
 
         // If the date is the same then days to is 0
         if(date.getDate() === dateNow.getDate()) {
@@ -40,7 +47,7 @@ function RenderEntry(jsonData, daysTillEvent) {
         const eventToday_info = EB_eventTodayInfo(jsonData, daysTillEvent);
 
         // Adds eventToday-countdown
-        const eventToday_countdown = EB_eventTodayCountdown(jsonData, daysTillEvent);
+        const eventToday_countdown = EB_eventTodayCountdown(jsonData, daysTillEvent, isPassed);
 
 
         // Add all events to the newly created Event Div.
