@@ -1,0 +1,10 @@
+{
+  "Accounts": {
+    "acountNumber": {
+      "perantORG": "",
+      "permission": "",
+      "encryptUSERNAME": "",
+      "encryptPASSWORD": ""
+    }
+  }
+}
