@@ -1,8 +1,5 @@
 package space.labmatt.Tools;
 
-
-import labmatt.space.Entry.GenEntryID;
-
 import java.io.File;
 
 // Checks if the file structure exists already. If not creates it.

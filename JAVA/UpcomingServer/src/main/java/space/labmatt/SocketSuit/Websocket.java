@@ -1,11 +1,9 @@
 package space.labmatt.SocketSuit;
 
-import labmatt.space.Auth.CheckAuth;
-import labmatt.space.Loging.LogEntery;
-import labmatt.space.Loging.ProjectPath;
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
+import space.labmatt.Tools.ProjectPath;
 
 import java.net.InetSocketAddress;
 
@@ -23,9 +21,6 @@ public class Websocket extends WebSocketServer {
     @Override
     public void onOpen(WebSocket webSocket, ClientHandshake clientHandshake) {
 
-        new LogEntery(webSocket, clientHandshake);
-
-        new CheckAuth();
     }
 
     @Override

@@ -20,7 +20,12 @@ public class Main {
         String ip = "192.168.1.102";
         String socketPort = "433";
         int webSocketPort = 433;
-        SSLContext sslKey = genSSL.getKey();
+        SSLContext sslKey = null;
+        try {
+            sslKey = genSSL.getKey();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
         ProjectPath path = new ProjectPath("");
 
