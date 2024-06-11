@@ -8,12 +8,15 @@ import java.net.InetSocketAddress;
 import space.labmatt.Encrypt.GenSSL;
 import space.labmatt.SocketSuit.Websocket;
 import space.labmatt.Tools.GenFileStrut;
+import space.labmatt.Tools.InitializeSessions;
 import space.labmatt.Tools.ProjectPath;
 
 public class Main {
     public static void main(String[] args) {
 
         System.out.println("Hello world!");
+
+        InitializeSessions initializeSessions = new InitializeSessions();
 
         GenSSL genSSL = new GenSSL();
 

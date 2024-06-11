@@ -21,16 +21,6 @@ public class MsgInterpreter {
             System.out.println(e);
         }
 
-
-        Sterilize sterilize = new Sterilize();
-
-
-        // Return if message is invalid.
-        if (!sterilize.input(message)) {
-
-            return;
-        }
-
         // Make sure command is valid.
         if (command == null) {
 
