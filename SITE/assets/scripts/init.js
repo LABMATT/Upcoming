@@ -4,6 +4,7 @@ function init() {
 
     setInterval(UpdateClock, 1000);
     regFoucs();
+    regLoginEvents();
 
     const jsonData = {
         "data": {

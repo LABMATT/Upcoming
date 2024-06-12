@@ -1,0 +1,32 @@
+.shortEvent {
+    
+    margin-top: 0.5em;
+    display: grid;
+    grid-template-columns: 10em auto 10em;
+    grid-template-rows: auto;
+}
+
+
+.shortEvent-date {
+    
+    background-color: rgba(60,60,60, 0.8);
+    
+    align-content: center;
+    text-align: center;
+}
+
+
+.shortEvent-info {
+    
+    background-color: rgba(40,40,40, 0.8);
+    align-content: center;
+    padding-left: 1%;
+}
+
+
+.shortEvent-countdown {
+    
+    background-color: rgba(60,60,60, 0.8);
+    align-content: center;
+    text-align: center;
+}

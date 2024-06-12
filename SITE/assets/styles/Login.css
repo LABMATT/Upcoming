@@ -1,0 +1,56 @@
+#login {
+    
+    position: relative;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+  
+    
+    height: 100%;
+}
+
+#loginbox {
+    
+    border: 1px solid black;
+    border-radius: 4px;
+    
+    display: flex;
+    flex-direction: column;
+    background: rgb(45,45,45);
+    padding: 2%;
+    
+    margin-left: auto;
+    margin-right: auto;
+    
+    text-align: center;
+}
+
+.loginText {
+    
+    margin: 0;
+}
+
+#loginForm {
+    
+    margin-top: 15%;
+}
+
+.loginInputStyles {
+    
+    background-color: rgb(60,60,60);
+
+    outline: none;
+    border: none;
+    border-left: 1px solid black;
+
+    
+    font-size: 1.2em;
+}
+
+.loginInputStyles:focus {
+    
+    background-color: rgb(80,80,80);
+    border-left: 1px solid rgb(150,0,0);
+}

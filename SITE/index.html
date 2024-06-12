@@ -17,6 +17,7 @@
         <script type="text/javascript" src="assets/scripts/EntryBuilder/EB_eventToday_info.js"></script>
         <script type="text/javascript" src="assets/scripts/EntryBuilder/EB_eventTodayCountdown.js"></script>
         <script type="text/javascript" src="assets/scripts/EntryBuilder/EB_event_info_footer.js"></script>
+        <script type="text/javascript" src="assets/scripts/login.js"></script>
 
         <!-- Include nesscary css files. -->
         <link rel="stylesheet" type="text/css" href="assets/styles/body.css">
@@ -27,6 +28,8 @@
         <link rel="stylesheet" type="text/css" href="assets/styles/eventSubEventInfo.css">
         <link rel="stylesheet" type="text/css" href="assets/styles/NoEvent.css">
         <link rel="stylesheet" type="text/css" href="assets/styles/EventCanceled.css">
+        <link rel="stylesheet" type="text/css" href="assets/styles/ShortEvent/ShortEvent.css">
+        <link rel="stylesheet" type="text/css" href="assets/styles/Login.css">
 
     </head>
 
@@ -35,6 +38,24 @@
 
         <!-- Background image, Becasuse its blured and we want it static we use a div. Other resultys dont allow blur to scroll with page.-->
         <div id="background"></div>
+
+        <div id="login">
+
+            <div id="loginbox">
+                <h1 class="loginText">Login</h1>
+                <p class="loginText">Login to see your organizations events</p>
+                <form id="loginForm">
+                    <input id="loginOrgInput" class="loginInputStyles" placeholder="Organization">
+                    <br><br>
+                    <input id="loginPinInput" class="loginInputStyles" placeholder="Pin Code">
+                    <br><br>
+                    
+                </form>
+                <button id="loginButton">Login</button>
+                
+            </div>
+
+        </div>
 
         <div id="MainContent">
 
@@ -50,6 +71,11 @@
 
             <div id="listedEvents">
 
+                <div class="shortEvent">
+                    <div class="shortEvent-date"><p>5/11/2024</p></div>
+                    <div class="shortEvent-info"><p>Inventory: 9am - 10am</p></div>
+                    <div class="shortEvent-countdown">In 5 Days</div>
+                </div>
 
                 <!-- If there are no events then display this. -->
                 <div id="noEvents">
