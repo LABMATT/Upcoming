@@ -1,0 +1,25 @@
+#tabs {
+    
+    display: flex;
+    flex-direction: row;
+    
+  
+    position: relative;
+}
+
+.tab {
+
+    padding: 1%;
+    flex-grow: 1;
+    
+    background: rgb(45,45,45);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-bottom: 1px solid grey;
+    
+}
+
+.tab:hover {
+    background-color: red;
+}
