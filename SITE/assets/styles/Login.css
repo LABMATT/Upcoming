@@ -40,6 +40,7 @@
 .loginInputStyles {
     
     background-color: rgb(60,60,60);
+    color: rgb(220,220,220);
 
     outline: none;
     border: none;
@@ -53,4 +54,22 @@
     
     background-color: rgb(80,80,80);
     border-left: 1px solid rgb(150,0,0);
+}
+
+#loginButton {
+
+    background-color: rgb(150,150,150);
+    color: white;
+    padding: 2%;
+    border: none;
+
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+}
+
+#loginButton:hover {
+
+    background-color: red;
+    transition-duration: 0.4ms;
 }
