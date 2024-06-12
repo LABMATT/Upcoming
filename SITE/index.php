@@ -27,8 +27,6 @@
         <link rel="stylesheet" type="text/css" href="assets/styles/eventSubEventInfo.css">
         <link rel="stylesheet" type="text/css" href="assets/styles/NoEvent.css">
         <link rel="stylesheet" type="text/css" href="assets/styles/EventCanceled.css">
-        <link rel="stylesheet" type="text/css" href="assets/styles/Tabs.css">
-        <link rel="stylesheet" type="text/css" href="assets/styles/Frames.css">
 
     </head>
 
@@ -37,17 +35,6 @@
 
         <!-- Background image, Becasuse its blured and we want it static we use a div. Other resultys dont allow blur to scroll with page.-->
         <div id="background"></div>
-
-        <div id="tabs">
-            <button class="tab">SAS</button>
-            <button class="tab">Weather</button>
-        </div>
-
-        <div id="frames" >
-            <iframe class="iframes" src="https://sas.em.vic.gov.au/#/turnout/events"></iframe>
-
-        </div>
-
 
         <div id="MainContent">
 
