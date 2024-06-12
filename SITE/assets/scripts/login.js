@@ -1,3 +1,10 @@
+
+// Send login request to the server.
+function sendLogin() {
+
+    document.getElementById("loginingMessage").style.display = "block";
+}
+
 // On login then hide the login box.
 function switchLogin(displayLogin) {
 

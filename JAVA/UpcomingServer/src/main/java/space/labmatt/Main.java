@@ -40,7 +40,7 @@ public class Main {
 
         // Creates a new websocket server.
         WebSocketServer webSocketServer = new Websocket(new InetSocketAddress(ip, webSocketPort), path);
-        webSocketServer.setWebSocketFactory(new DefaultSSLWebSocketServerFactory(sslKey));
+        //webSocketServer.setWebSocketFactory(new DefaultSSLWebSocketServerFactory(sslKey));
         webSocketServer.run();
     }
 }
