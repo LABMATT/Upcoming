@@ -2,6 +2,7 @@ package space.labmatt.SocketSuit;
 
 import com.google.gson.Gson;
 import org.java_websocket.WebSocket;
+import space.labmatt.Tools.LoginVerify;
 import space.labmatt.Tools.ProjectPath;
 import space.labmatt.Transport.Struts.Command;
 
@@ -30,6 +31,9 @@ public class MsgInterpreter {
         switch (command.command) {
             case "login":
                 System.out.println("LOGIN COMMANAD");
+
+                new LoginVerify(webSocket, command, path);
+
                 break;
             case "requestLOGS":
                 System.out.println("request logs");

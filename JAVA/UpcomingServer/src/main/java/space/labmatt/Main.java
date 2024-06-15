@@ -10,6 +10,7 @@ import space.labmatt.SocketSuit.Websocket;
 import space.labmatt.Tools.GenFileStrut;
 import space.labmatt.Tools.InitializeSessions;
 import space.labmatt.Tools.ProjectPath;
+import space.labmatt.Transport.Sessions;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,6 +32,10 @@ public class Main {
         }
 
         ProjectPath path = new ProjectPath("");
+        Sessions sessions = new Sessions();
+
+        sessions.addOrganization("TestOr", path);
+
 
         // Create the folder setup.
         new GenFileStrut(path.getPath());
@@ -42,5 +47,7 @@ public class Main {
         WebSocketServer webSocketServer = new Websocket(new InetSocketAddress(ip, webSocketPort), path);
         //webSocketServer.setWebSocketFactory(new DefaultSSLWebSocketServerFactory(sslKey));
         webSocketServer.run();
+
+
     }
 }

@@ -7,6 +7,7 @@ import space.labmatt.Tools.ProjectPath;
 
 import java.net.InetSocketAddress;
 
+// Runs the main websocket functions that will be called when connected and communcated.
 public class Websocket extends WebSocketServer {
 
     ProjectPath path;
@@ -28,6 +29,8 @@ public class Websocket extends WebSocketServer {
 
     }
 
+
+    // When messages is recived send it to the interpater to work out what function to trigger.
     @Override
     public void onMessage(WebSocket webSocket, String message) {
 

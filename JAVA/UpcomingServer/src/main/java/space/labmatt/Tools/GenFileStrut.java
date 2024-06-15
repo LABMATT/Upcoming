@@ -15,60 +15,53 @@ public class GenFileStrut {
         // Get the path of the jar.
         System.out.println("Current Working DIR: " + workingDIR);
 
-        File content = new File(workingDIR + "/content/");
-        File contentYear = new File(workingDIR + "/content/" + genEntryID.folderDate() + "/");
-        File settings = new File(workingDIR + "/settings/");
-        File logs = new File(workingDIR + "/logs/");
-        File profiles = new File(workingDIR + "/profiles/");
+        File mainFolder = new File(workingDIR + File.separator + "upcomingServer" + File.separator);
+        File org = new File(workingDIR + File.separator + "upcomingServer" + File.separator + "organisation");
+        File settings = new File(workingDIR + File.separator + "upcomingServer" + File.separator + "settings");
+        File logs = new File(workingDIR + File.separator + "upcomingServer" + File.separator + "logs");
 
 
-        // Check if exist if not then create them.
-        if(!content.isDirectory()) {
+        // Check if main folder exits if not then create them.
+        if(!mainFolder.isDirectory()) {
 
-            System.out.println("Creating Folder: " + workingDIR + "/content/");
-            boolean flagDir = content.mkdir();
+            System.out.println("Creating Folder: " + mainFolder.getPath());
+            boolean flagDir = mainFolder.mkdir();
 
             System.out.println("Content Result: " + flagDir);
             nothingFlagged = true;
         }
 
-        // Check if exist if not then create them.
-        if(!contentYear.isDirectory()) {
 
-            System.out.println("Creating Folder: " + workingDIR + "/content/" + genEntryID.folderDate() + "/");
-            boolean flagDir = contentYear.mkdir();
+        // Check if main folder exits if not then create them.
+        if(!org.isDirectory()) {
 
-            System.out.println("ContentYear Result: " + flagDir);
+            System.out.println("Creating Folder: " + org.getPath());
+            boolean flagDir = org.mkdir();
+
+            System.out.println("Content Result: " + flagDir);
             nothingFlagged = true;
         }
 
+
+        // Check if main folder exits if not then create them.
         if(!settings.isDirectory()) {
 
-            System.out.println("Creating Folder: " + workingDIR + "/settings/");
+            System.out.println("Creating Folder: " + settings.getPath());
             boolean flagDir = settings.mkdir();
 
-            System.out.println("Settings Result: " + flagDir);
+            System.out.println("Content Result: " + flagDir);
             nothingFlagged = true;
         }
 
+
+        // Check if main folder exits if not then create them.
         if(!logs.isDirectory()) {
 
-            System.out.println("Creating Folder: " + workingDIR + "/logs/");
+            System.out.println("Creating Folder: " + logs.getPath());
             boolean flagDir = logs.mkdir();
 
-            System.out.println("Logs Result: " + flagDir);
+            System.out.println("Content Result: " + flagDir);
             nothingFlagged = true;
-
-        }
-
-        if(!profiles.isDirectory()) {
-
-            System.out.println("Creating Folder: " + workingDIR + "/profiles/");
-            boolean flagDir = profiles.mkdir();
-
-            System.out.println("Profiles Result: " + flagDir);
-            nothingFlagged = true;
-
         }
 
         System.out.println("FILE SYSTEM CHECK COMPLETE.");
@@ -77,7 +70,8 @@ public class GenFileStrut {
         {
             System.out.println("RESULT: OK");
         } else {
-            System.out.println("RESULT: SEE ABOVE");
+            System.out.println("RESULT: FOLDERS CREATED SEE ABOVE");
+            System.exit(0);
         }
     }
 }
