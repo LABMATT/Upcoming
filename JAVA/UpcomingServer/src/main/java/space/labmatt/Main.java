@@ -9,6 +9,7 @@ import space.labmatt.Encrypt.GenSSL;
 import space.labmatt.SocketSuit.Websocket;
 import space.labmatt.Tools.GenFileStrut;
 import space.labmatt.Tools.InitializeSessions;
+import space.labmatt.Tools.NewOrganization;
 import space.labmatt.Tools.ProjectPath;
 import space.labmatt.Transport.Sessions;
 
@@ -32,9 +33,9 @@ public class Main {
         }
 
         ProjectPath path = new ProjectPath("");
-        Sessions sessions = new Sessions();
+        NewOrganization norg = new NewOrganization();
 
-        sessions.addOrganization("TestOr", path);
+        norg.addOrganization("TestOr", path);
 
 
         // Create the folder setup.
