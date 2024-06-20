@@ -1,7 +1,7 @@
 {
     "account": {
       "accountID": "",
-      "parentORG": "",
+      "parent_ORG_ID": "",
       "permission": "",
       "encryptUSERNAME": "",
       "encryptPASSWORD": ""

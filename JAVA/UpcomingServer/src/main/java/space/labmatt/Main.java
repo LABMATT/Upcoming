@@ -37,6 +37,11 @@ public class Main {
 
         norg.addOrganization("TestOr", path);
 
+        // Load organizations into memory
+        System.out.println("Loading Organizations into memory.");
+        Sessions sessions = new Sessions();
+        sessions.loadOrganizations(path);
+
 
         // Create the folder setup.
         new GenFileStrut(path.getPath());

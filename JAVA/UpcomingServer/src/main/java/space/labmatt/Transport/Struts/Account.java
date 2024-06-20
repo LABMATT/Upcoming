@@ -5,9 +5,8 @@ package space.labmatt.Transport.Struts;
 public class Account {
 
     public String accountID;
-    public String parentORG;
+    public String parent_ORG_ID;
     public String permission;
     public String encryptUSERNAME;
     public String encryptPASSWORD;
-
 }
