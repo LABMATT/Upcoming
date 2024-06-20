@@ -3,13 +3,14 @@ package space.labmatt.Encrypt;
 import space.labmatt.Tools.ProjectPath;
 
 import javax.crypto.Cipher;
+import javax.crypto.CipherOutputStream;
 import javax.crypto.KeyGenerator;
-import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.File;
 import java.io.FileWriter;
-import java.security.NoSuchAlgorithmException;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.Scanner;
 
@@ -41,7 +42,7 @@ public class Cyrpt {
             //String data = dataDecrypt();
             String data = "";
 
-            if(data.equals("The quick brown fox jumped over tha lazy dog.")) {
+            if (data.equals("The quick brown fox jumped over tha lazy dog.")) {
 
                 System.out.println("Key Verified Successfully.");
                 correctKey = true;
@@ -55,20 +56,33 @@ public class Cyrpt {
     }
 
 
-    public String dataDecrypt(String data) {
+    public String dataDecrypt(String dataString) {
 
+        return null;
+    }
+
+    public String dataEncrypt(String dataString) {
+
+        try {
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+
+            // todo Add ciper decription here.
+        } catch (Exception ignored) {
+
+        }
 
         return null;
     }
 
 
-    // CheckAuthFile looks to see if the file that we will check the key aginst exists.
-    // If it does not then we should gen a new key. Then make a "authenticate.file" encypted with this new key.
+    // CheckAuthFile looks to see if the file that we will check the key against exists.
+    // If it does not then we should gen a new key. Then make a "authenticate.file" encrypted with this new key.
     // Print out the new key for user to copy.
     private void checkAuthFile(String authFile) {
 
         File file = new File(authFile);
-        if(!file.isFile()) {
+        if (!file.isFile()) {
 
             System.out.println("\"authenticate.file\" Does not exist.");
             System.out.println("Assuming First time start and no Encryption key has been chosen.");
@@ -81,10 +95,10 @@ public class Cyrpt {
                 Scanner myObj = new Scanner(System.in);
                 String answer = myObj.nextLine();
 
-                if(answer.equals("y")) {
+                if (answer.equals("y")) {
 
                     validAnswer = true;
-                } else if(answer.equals("n")) {
+                } else if (answer.equals("n")) {
 
                     genNewKey = false;
                     validAnswer = true;
@@ -94,7 +108,7 @@ public class Cyrpt {
                 }
             }
 
-            if(genNewKey) {
+            if (genNewKey) {
 
                 try {
                     SecretKey newKey = KeyGenerator.getInstance("AES").generateKey();
@@ -108,10 +122,10 @@ public class Cyrpt {
 
                     boolean newAuthFile = file.createNewFile();
 
-                    if(newAuthFile) {
+                    if (newAuthFile) {
 
                         String verifyString = "The quick brown fox jumped over tha lazy dog.";
-                        //verifyString = dataEncrypt(verifyString);
+                        verifyString = dataEncrypt(verifyString);
                         FileWriter fileWriter = new FileWriter(authFile);
                         fileWriter.write(verifyString);
                         fileWriter.close();
