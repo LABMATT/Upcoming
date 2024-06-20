@@ -116,6 +116,7 @@ public class Sessions {
                 //usersFile = decript();
                 Gson gson = new Gson();
                 Account newAccount = gson.fromJson(usersFile, Account.class);
+                organization.accountList.add(newAccount);
 
             }
         }

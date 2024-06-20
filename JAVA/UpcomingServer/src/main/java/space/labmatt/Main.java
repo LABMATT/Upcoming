@@ -5,6 +5,8 @@ import org.java_websocket.server.WebSocketServer;
 
 import javax.net.ssl.SSLContext;
 import java.net.InetSocketAddress;
+
+import space.labmatt.Encrypt.Cyrpt;
 import space.labmatt.Encrypt.GenSSL;
 import space.labmatt.SocketSuit.Websocket;
 import space.labmatt.Tools.GenFileStrut;
@@ -32,8 +34,11 @@ public class Main {
             throw new RuntimeException(e);
         }
 
+
+
         ProjectPath path = new ProjectPath("");
         NewOrganization norg = new NewOrganization();
+        Cyrpt crypt = new Cyrpt(path);
 
         norg.addOrganization("TestOr", path);
 

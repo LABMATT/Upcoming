@@ -5,11 +5,9 @@ import java.util.List;
 // This is now
 public class Organization {
 
-    List<Account> accountList;
-    List<Autho> currentLogins;
-    List<Entry> entryList;
-
-    public String settings = "";
+    public List<Account> accountList;
+    public List<Autho> currentLogins;
+    public List<Entry> entryList;
 
     public String orgID = null;
     public String orgNAME = null;
