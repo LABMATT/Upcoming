@@ -3,11 +3,12 @@ package space.labmatt.Encrypt;
 import space.labmatt.Tools.ProjectPath;
 
 import javax.crypto.Cipher;
-import javax.crypto.CipherOutputStream;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -16,7 +17,8 @@ import java.util.Scanner;
 
 public class Cyrpt {
 
-    public SecretKey secretKey = null;
+    private SecretKey secretKey = null;
+    private String algorithm = "AES";
 
     public Cyrpt(ProjectPath path) {
 
@@ -37,12 +39,18 @@ public class Cyrpt {
             testKey = myObj.nextLine();
 
             byte[] decode = Base64.getDecoder().decode(testKey);
-            secretKey = new SecretKeySpec(decode, 0, decode.length, "AES");
+            secretKey = new SecretKeySpec(decode, 0, decode.length, algorithm);
 
-            //String data = dataDecrypt();
-            String data = "";
+            String testfile = readAuthenticateFile(testFilePath);
+            String data = dataDecrypt(testfile);
 
-            if (data.equals("The quick brown fox jumped over tha lazy dog.")) {
+            System.out.println("Data was: " + data);
+
+            if(data == null) {
+
+                System.out.println("Error verifying key. Try again.");
+
+            } else if (data.equals("The quick brown fox jumped over tha lazy dog.")) {
 
                 System.out.println("Key Verified Successfully.");
                 correctKey = true;
@@ -56,23 +64,44 @@ public class Cyrpt {
     }
 
 
+    // take plain text in and decript it.
     public String dataDecrypt(String dataString) {
 
-        return null;
-    }
-
-    public String dataEncrypt(String dataString) {
+        String returnData = null;
 
         try {
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
 
-            // todo Add ciper decription here.
-        } catch (Exception ignored) {
+            Cipher cipher = Cipher.getInstance(algorithm);
+            cipher.init(Cipher.DECRYPT_MODE, secretKey);
+            byte[] ciphertext = cipher.doFinal(Base64.getDecoder().decode(dataString));
+            returnData = Arrays.toString(ciphertext);
 
+        } catch (Exception e) {
+
+            System.out.println("Error Decrypting." + e.getMessage());
         }
 
-        return null;
+        return returnData;
+    }
+
+
+    // String input gets incrupted and then returned. Null if failure
+    public String dataEncrypt(String dataString) {
+
+         String dataEnc = null;
+
+        try {
+            Cipher cipher = Cipher.getInstance(algorithm);
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+            byte[] cipherBytes = cipher.doFinal(dataString.getBytes());
+            dataEnc = Base64.getEncoder().encodeToString(cipherBytes);
+
+        } catch (Exception e) {
+
+            System.out.println("Encrytion error: " + e.getMessage());
+        }
+
+        return dataEnc;
     }
 
 
@@ -111,7 +140,9 @@ public class Cyrpt {
             if (genNewKey) {
 
                 try {
-                    SecretKey newKey = KeyGenerator.getInstance("AES").generateKey();
+                    KeyGenerator keyGenerator = KeyGenerator.getInstance(algorithm);
+                    //keyGenerator.init(256);
+                    SecretKey newKey = keyGenerator.generateKey();
                     String base64Newkey = Base64.getEncoder().encodeToString(newKey.getEncoded());
 
                     System.out.println("Generating new key.");
@@ -119,6 +150,7 @@ public class Cyrpt {
                     System.out.println(" ");
                     System.out.println(base64Newkey);
                     System.out.println(" ");
+                    secretKey = newKey;
 
                     boolean newAuthFile = file.createNewFile();
 
@@ -126,6 +158,8 @@ public class Cyrpt {
 
                         String verifyString = "The quick brown fox jumped over tha lazy dog.";
                         verifyString = dataEncrypt(verifyString);
+                        System.out.println("DecriptedFileDataWilLBe: " + dataDecrypt(verifyString));
+
                         FileWriter fileWriter = new FileWriter(authFile);
                         fileWriter.write(verifyString);
                         fileWriter.close();
@@ -148,5 +182,37 @@ public class Cyrpt {
 
             System.out.println("Exiting key gen.");
         }
+
+        secretKey = null;
+    }
+
+
+    // Reads authenticate.file files data.
+    private String readAuthenticateFile(String path) {
+
+        String returnAuthFileContent = null;
+
+        try {
+
+            StringBuilder stringBuilder = new StringBuilder();
+
+            FileReader fileReader = new FileReader(path);
+            BufferedReader br = new BufferedReader(fileReader);
+
+            String line = br.readLine();
+            while ((line != null)) {
+
+                stringBuilder.append(line);
+                line = br.readLine();
+            }
+
+            returnAuthFileContent = stringBuilder.toString();
+
+        } catch (Exception e) {
+
+            System.out.println("Error getting Authenticate file.");
+        }
+
+        return returnAuthFileContent;
     }
 }
