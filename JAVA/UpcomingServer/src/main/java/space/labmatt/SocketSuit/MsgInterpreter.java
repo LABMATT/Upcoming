@@ -2,6 +2,7 @@ package space.labmatt.SocketSuit;
 
 import com.google.gson.Gson;
 import org.java_websocket.WebSocket;
+import space.labmatt.Tools.GetCommand;
 import space.labmatt.Tools.LoginVerify;
 import space.labmatt.Tools.ProjectPath;
 import space.labmatt.Transport.Struts.Command;
@@ -14,6 +15,8 @@ public class MsgInterpreter {
     public MsgInterpreter(WebSocket webSocket, String message, ProjectPath path) {
 
         Command command = null;
+
+        GetCommand getCommand = new GetCommand(message);
 
         try {
             command = gson.fromJson(message, Command.class);

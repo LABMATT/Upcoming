@@ -9,16 +9,21 @@ import java.net.InetSocketAddress;
 import space.labmatt.Encrypt.Cyrpt;
 import space.labmatt.Encrypt.GenSSL;
 import space.labmatt.SocketSuit.Websocket;
-import space.labmatt.Tools.GenFileStrut;
-import space.labmatt.Tools.InitializeSessions;
-import space.labmatt.Tools.NewOrganization;
-import space.labmatt.Tools.ProjectPath;
+import space.labmatt.Tools.*;
 import space.labmatt.Transport.Sessions;
 
 public class Main {
     public static void main(String[] args) {
 
         System.out.println("Hello world!");
+
+        System.out.println("Test of commandSub");
+        String testjson = "{\"command\": \"cunt\", \"message\": {there}";
+        GetCommand getCommand = new GetCommand(testjson);
+        System.out.println(getCommand.command);
+        System.out.println("Errors" + getCommand.errors);
+
+
 
         InitializeSessions initializeSessions = new InitializeSessions();
 
