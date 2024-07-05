@@ -6,7 +6,7 @@ import space.labmatt.Transport.Struts.Command;
 public class LoginVerify {
 
 
-    public LoginVerify(WebSocket webSocket, Command command, ProjectPath path) {
+    public LoginVerify(WebSocket webSocket, String message, ProjectPath path) {
 
         webSocket.send("{\"command\": \"verifyingLogin\"}");
 

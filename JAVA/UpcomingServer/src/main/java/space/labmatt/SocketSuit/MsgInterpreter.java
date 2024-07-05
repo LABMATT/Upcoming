@@ -1,41 +1,43 @@
 package space.labmatt.SocketSuit;
 
-import com.google.gson.Gson;
 import org.java_websocket.WebSocket;
 import space.labmatt.Tools.GetCommand;
 import space.labmatt.Tools.LoginVerify;
 import space.labmatt.Tools.ProjectPath;
-import space.labmatt.Transport.Struts.Command;
+
 
 public class MsgInterpreter {
 
-    Gson gson = new Gson();
-
-    // Makes sure that the input does not contain bad charters. If so then do nothing. else proceed.
     public MsgInterpreter(WebSocket webSocket, String message, ProjectPath path) {
-
-        Command command = null;
+        /*
+        Message Interrupter:
+        - Receive input as string.
+        - Split string into command and message
+        - Based on command send the message to the correct function.
+         */
 
         GetCommand getCommand = new GetCommand(message);
 
-        try {
-            command = gson.fromJson(message, Command.class);
-        } catch (Exception e) {
-
-            System.out.println(e);
-        }
-
-        // Make sure command is valid.
-        if (command == null) {
+        if (!getCommand.command.isEmpty() && !getCommand.message.isEmpty()) {
 
             return;
         }
 
-        switch (command.command) {
+        if (!getCommand.errors.isEmpty()) {
+
+            for (String error : getCommand.errors) {
+
+                System.out.println("Command Error: " + error);
+            }
+            return;
+        }
+
+
+        switch (getCommand.command) {
             case "login":
                 System.out.println("LOGIN COMMANAD");
 
-                new LoginVerify(webSocket, command, path);
+                new LoginVerify(webSocket, getCommand.message, path);
 
                 break;
             case "requestLOGS":
@@ -65,11 +67,9 @@ public class MsgInterpreter {
                 break;
 
             default:
-                System.out.println("INVALID COMMAND < " + command.command + ">.");
+                System.out.println("INVALID COMMAND < " + getCommand.command + ">.");
                 //new Error(webSocket, "Unexpected Command");
                 break;
         }
-
-
     }
 }

@@ -5,14 +5,9 @@ import java.util.List;
 
 public class GetCommand {
 
-    // These allow you to get the command and message from this object after its been passed into the constructor;
-    public List<String> errors = new ArrayList<>();
-    public String message = "";
-    public String command = "";
-
-    // Example json command and message:
-    // A whole string has to be longer than 30 chars in order to have this data in it.
-    /*
+     /*
+    Example json command and message:
+    A whole string has to be longer than 30 chars in order to have this data in it.
 
     {
     "command": "newInput",
@@ -21,15 +16,22 @@ public class GetCommand {
 
      */
 
+    public List<String> errors = new ArrayList<>();
+    public String message = "";
+    public String command = "";
+    private int commerLocation = 0;
 
-    // When fed the json message.
-    // Check its json format.
-    // CHeck if it has a valid first command.
-    // Grab that command
-    // then set the clipped message as leftoveres.
+
     public GetCommand(String message) {
 
-        // Check if length is valid.
+        /*
+        Break Down String into command and message:
+        - Receive Json string
+        - Check the that the json format is valid by locating chars and substrings.
+        - Locate the , between command and message. Use this to verify message start and end.
+
+         */
+
         if(message.length() < 30) {
 
             errors.add("String is to short to contain command and message.");
@@ -58,24 +60,32 @@ public class GetCommand {
             return;
         }
 
+
         // Get the message of the command
         this.command = getCommandSubString(message);
+
+        if(this.command.isEmpty() || commerLocation == 0) {
+
+            return;
+        }
+
+        // Get the message
+        this.message = getMessageSubString(message);
     }
 
 
-    // Get the command message from the substring.
     private String getCommandSubString(String message) {
+        // Get the command message from the substring.
 
-        // check for the opening qoute mark.
         if(message.charAt(12) != '\"') {
 
-            errors.add("Json syntax error. Missing command qoute.");
+            errors.add("Json syntax error. Missing command quote.");
             return "";
         }
 
 
-        // Get the location of the commer between the command and message stage.
-        // if the commer did not exist then return.
+        // Get the location of the comer between the command and message stage.
+        // if the comer did not exist then return.
         int commerPostion = 12;
         while(commerPostion != message.length()) {
 
@@ -122,7 +132,28 @@ public class GetCommand {
             return "";
         } else {
 
+            commerLocation = commerPostion;
             return message.substring(13, commerPostion-1);
         }
+    }
+
+
+    private String getMessageSubString(String message) {
+        // Using the end and the commer position from the last function. get the contenets of the message.
+
+        System.out.println(message.charAt(message.length()-2));
+        if(message.charAt(message.length()-2) != '\"') {
+
+            errors.add("Syntax error. Unable to find message end.");
+            return "";
+        }
+
+        if(message.charAt(commerLocation+13) != '\"') {
+
+            errors.add("Syntax error. Unable to find message start \".");
+            return "";
+        }
+
+        return message.substring(commerLocation+14, message.length()-2);
     }
 }

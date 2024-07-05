@@ -18,9 +18,10 @@ public class Main {
         System.out.println("Hello world!");
 
         System.out.println("Test of commandSub");
-        String testjson = "{\"command\": \"cunt\", \"message\": {there}";
+        String testjson = "{\"command\": \"piss\", \"message\": \"{there}\"}";
         GetCommand getCommand = new GetCommand(testjson);
         System.out.println(getCommand.command);
+        System.out.println(getCommand.message);
         System.out.println("Errors" + getCommand.errors);
 
 
