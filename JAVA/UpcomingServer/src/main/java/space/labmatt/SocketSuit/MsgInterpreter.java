@@ -18,7 +18,9 @@ public class MsgInterpreter {
 
         GetCommand getCommand = new GetCommand(message);
 
-        if (!getCommand.command.isEmpty() && !getCommand.message.isEmpty()) {
+        System.out.println("Resultint: " + getCommand.command + " Message: " + getCommand.message);
+
+        if (getCommand.command.isEmpty() || getCommand.message.isEmpty()) {
 
             return;
         }
@@ -31,6 +33,8 @@ public class MsgInterpreter {
             }
             return;
         }
+
+
 
 
         switch (getCommand.command) {

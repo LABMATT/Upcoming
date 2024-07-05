@@ -17,15 +17,6 @@ public class Main {
 
         System.out.println("Hello world!");
 
-        System.out.println("Test of commandSub");
-        String testjson = "{\"command\": \"piss\", \"message\": \"{there}\"}";
-        GetCommand getCommand = new GetCommand(testjson);
-        System.out.println(getCommand.command);
-        System.out.println(getCommand.message);
-        System.out.println("Errors" + getCommand.errors);
-
-
-
         InitializeSessions initializeSessions = new InitializeSessions();
 
         GenSSL genSSL = new GenSSL();
@@ -44,7 +35,7 @@ public class Main {
 
         ProjectPath path = new ProjectPath("");
         NewOrganization norg = new NewOrganization();
-        Cyrpt crypt = new Cyrpt(path);
+        //Cyrpt crypt = new Cyrpt(path);
 
         norg.addOrganization("TestOr", path);
 

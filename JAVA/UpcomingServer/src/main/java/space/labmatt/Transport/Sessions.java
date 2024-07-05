@@ -8,12 +8,13 @@ import space.labmatt.Transport.Struts.Organization;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sessions {
 
     List<Organization> organizationSessions;
-    List<String> orgErrors;
+    List<String> orgErrors = new ArrayList<>();
 
 
     // Load the organizations from the file system into sessions.

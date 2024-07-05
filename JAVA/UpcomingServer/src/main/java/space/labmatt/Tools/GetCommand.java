@@ -46,7 +46,7 @@ public class GetCommand {
         }
 
         // Make sure command is set up
-        if(!message.substring(1,12).equalsIgnoreCase("\"command\": ")) {
+        if(!message.substring(1,11).equalsIgnoreCase("\"command\":")) {
 
             errors.add("Json syntax error. Missing command.");
             return;
@@ -77,7 +77,7 @@ public class GetCommand {
     private String getCommandSubString(String message) {
         // Get the command message from the substring.
 
-        if(message.charAt(12) != '\"') {
+        if(message.charAt(11) != '\"') {
 
             errors.add("Json syntax error. Missing command quote.");
             return "";
@@ -126,14 +126,14 @@ public class GetCommand {
 
         // make sure the following part is the message.
         // return the substring witch should be the commaned.
-        if(!message.substring(commerPostion + 2, commerPostion+12).equalsIgnoreCase("\"message\":")) {
+        if(!message.substring(commerPostion + 1, commerPostion+11).equalsIgnoreCase("\"message\":")) {
 
             errors.add("Json syntax error. Missing message filed.");
             return "";
         } else {
 
             commerLocation = commerPostion;
-            return message.substring(13, commerPostion-1);
+            return message.substring(12, commerPostion-1);
         }
     }
 
@@ -148,12 +148,12 @@ public class GetCommand {
             return "";
         }
 
-        if(message.charAt(commerLocation+13) != '\"') {
+        if(message.charAt(commerLocation+11) != '\"') {
 
             errors.add("Syntax error. Unable to find message start \".");
             return "";
         }
 
-        return message.substring(commerLocation+14, message.length()-2);
+        return message.substring(commerLocation+12, message.length()-2);
     }
 }

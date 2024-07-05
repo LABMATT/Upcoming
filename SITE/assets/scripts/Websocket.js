@@ -1,11 +1,11 @@
 // Create WebSocket connection.
-const socket = new WebSocket("wss://192.168.1.102:433");
+const socket = new WebSocket("ws://192.168.1.102:433");
 
 // Connection opened
 socket.addEventListener("open", (event) => {
 
     //socket.send("Hello Server!");
-    socket.send(JSON.stringify(new RequestLogs(globalAutho)));
+    socket.send(JSON.stringify(new CommandMessage("login", "{Bob}")));
 });
 
 // Listen for messages
