@@ -36,40 +36,15 @@ public class MsgInterpreter {
 
 
 
-
         switch (getCommand.command) {
             case "login":
-                System.out.println("LOGIN COMMANAD");
+                System.out.println("LOGIN COMMAND");
 
                 new LoginVerify(webSocket, getCommand.message, path);
+                break;
+            case "logout":
 
                 break;
-            case "requestLOGS":
-                System.out.println("request logs");
-                //RequestEntry requestEntry = new RequestEntry();
-                //requestEntry.getEntrys(webSocket, path);
-                break;
-
-            case "archive":
-                //new Archive(webSocket, path, command.message);
-                //new RequestEntry().reloadEntrys(path);
-                webSocket.send("{\"command\": \"reload\"}");
-                break;
-
-            case "approve":
-                //new Approve(webSocket, path, command.message);
-                //new RequestEntry().reloadEntrys(path);
-                webSocket.send("{\"command\": \"reload\"}");
-                break;
-
-            case "newEntry":
-                System.out.println("New entery");
-                //new NewEntery(webSocket, path, command.entry);
-                break;
-            case "reload":
-                //new RequestEntry().reloadEntrys(path);
-                break;
-
             default:
                 System.out.println("INVALID COMMAND < " + getCommand.command + ">.");
                 //new Error(webSocket, "Unexpected Command");
