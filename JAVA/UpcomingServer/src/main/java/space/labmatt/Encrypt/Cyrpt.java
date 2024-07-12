@@ -10,7 +10,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.Scanner;
@@ -19,6 +18,7 @@ public class Cyrpt {
 
     private SecretKey secretKey = null;
     private String algorithm = "AES";
+    private boolean enableEncypt = false;
 
     public Cyrpt(ProjectPath path) {
 
@@ -67,13 +67,18 @@ public class Cyrpt {
     // take plain text in and decript it.
     public String dataDecrypt(String dataString) {
 
+        if(!enableEncypt) {
+
+            return dataString;
+        }
+
         String returnData = null;
 
         try {
 
             Cipher cipher = Cipher.getInstance(algorithm);
             cipher.init(Cipher.DECRYPT_MODE, secretKey);
-            byte[] ciphertext = cipher.doFinal(Base64.getDecoder().decode(dataString));
+            byte[] ciphertext = cipher.doFinal(dataString.getBytes());
             returnData = Arrays.toString(ciphertext);
 
         } catch (Exception e) {
@@ -88,13 +93,19 @@ public class Cyrpt {
     // String input gets incrupted and then returned. Null if failure
     public String dataEncrypt(String dataString) {
 
+        if(!enableEncypt) {
+
+            return dataString;
+        }
+
          String dataEnc = null;
 
         try {
             Cipher cipher = Cipher.getInstance(algorithm);
             cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+            //byte[] base64encodedString = Base64.getEncoder().encode(dataString.getBytes(StandardCharsets.UTF_8));
             byte[] cipherBytes = cipher.doFinal(dataString.getBytes());
-            dataEnc = Base64.getEncoder().encodeToString(cipherBytes);
+            dataEnc = Arrays.toString(cipherBytes);
 
         } catch (Exception e) {
 
@@ -158,6 +169,7 @@ public class Cyrpt {
 
                         String verifyString = "The quick brown fox jumped over tha lazy dog.";
                         verifyString = dataEncrypt(verifyString);
+                        System.out.println("Encypted String: " + verifyString);
                         System.out.println("DecriptedFileDataWilLBe: " + dataDecrypt(verifyString));
 
                         FileWriter fileWriter = new FileWriter(authFile);

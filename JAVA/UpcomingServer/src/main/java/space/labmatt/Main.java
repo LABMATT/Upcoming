@@ -8,16 +8,16 @@ import java.net.InetSocketAddress;
 
 import space.labmatt.Encrypt.Cyrpt;
 import space.labmatt.Encrypt.GenSSL;
+import space.labmatt.Interface.CommandLine;
 import space.labmatt.SocketSuit.Websocket;
 import space.labmatt.Tools.*;
 import space.labmatt.Transport.Sessions;
+import space.labmatt.Transport.Struts.Command;
 
 public class Main {
     public static void main(String[] args) {
 
         System.out.println("Hello world!");
-
-        InitializeSessions initializeSessions = new InitializeSessions();
 
         GenSSL genSSL = new GenSSL();
 
@@ -50,6 +50,11 @@ public class Main {
 
         // Create Socket
         //SocketAuth socketAuth = new SocketAuth(ip, socketPort);
+
+        // Create a commandline interprater instance.
+        CommandLine commandLine = new CommandLine(path, sessions);
+        Thread thread = new Thread(commandLine);
+        thread.start();
 
         // Creates a new websocket server.
         WebSocketServer webSocketServer = new Websocket(new InetSocketAddress(ip, webSocketPort), path);

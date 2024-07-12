@@ -14,7 +14,7 @@ import java.util.List;
 public class Sessions {
 
     List<Organization> organizationSessions;
-    List<String> orgErrors = new ArrayList<>();
+    public List<String> orgErrors = new ArrayList<>();
 
 
     // Load the organizations from the file system into sessions.
