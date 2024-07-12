@@ -1,5 +1,11 @@
 package space.labmatt.Interface;
 
+import space.labmatt.Tools.ValidateString;
+import space.labmatt.Transport.Struts.Organization;
+
+import javax.swing.text.DateFormatter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class NewOrgGuide {
@@ -18,13 +24,22 @@ public class NewOrgGuide {
 
         System.out.print("New Org > Enter Name: ");
 
-        String orgname = null;
+        ValidateString validateString = new ValidateString();
+
+        Organization organization = new Organization();
+        organization.orgNAME = null;
 
         boolean validName = false;
         while (!validName) {
-            orgname = input.nextLine();
+            organization.orgNAME = input.nextLine();
 
+            validName = validateString.isValidStandard(organization.orgNAME);
         }
+
+
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        organization.dateCREATED = localDateTime.format(dateTimeFormatter);
 
 
 

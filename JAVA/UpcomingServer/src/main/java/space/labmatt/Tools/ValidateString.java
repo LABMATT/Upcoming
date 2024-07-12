@@ -1,6 +1,6 @@
 package space.labmatt.Tools;
 
-public class validateString {
+public class ValidateString {
 
     public boolean isValidStandard(String input) {
         // Compairs the each part of the input aginst what i would consider a standared exctable string.

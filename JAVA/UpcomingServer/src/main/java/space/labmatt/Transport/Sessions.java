@@ -17,8 +17,8 @@ public class Sessions {
     public List<String> orgErrors = new ArrayList<>();
 
 
-    // Load the organizations from the file system into sessions.
     public void loadOrganizations(ProjectPath path) {
+        // Load the organizations from the file system into sessions.
 
         String relPath = path.getPath() + File.separator + "upcomingServer" + File.separator + "organisation" + File.separator;
 
@@ -48,15 +48,12 @@ public class Sessions {
             loadFromFile(org.getPath());
         }
 
-
-        System.out.println("Finished Loading Organizations.");
-        System.out.println("Error Count: " + orgErrors.size());
     }
 
 
-    // Gets passed a path and then trys loading its componets.
-    // Then adds it to the List.
     private void loadFromFile(String path) {
+        // Gets passed a path and then trys loading its componets.
+        // Then adds it to the List.
 
         Organization organization = new Organization();
 

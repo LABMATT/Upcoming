@@ -43,6 +43,8 @@ public class Main {
         System.out.println("Loading Organizations into memory.");
         Sessions sessions = new Sessions();
         sessions.loadOrganizations(path);
+        System.out.println("Loading Organizations Complete. (" + sessions.orgErrors.size() + ") errors found.");
+
 
 
         // Create the folder setup.
@@ -60,7 +62,5 @@ public class Main {
         WebSocketServer webSocketServer = new Websocket(new InetSocketAddress(ip, webSocketPort), path);
         //webSocketServer.setWebSocketFactory(new DefaultSSLWebSocketServerFactory(sslKey));
         webSocketServer.run();
-
-
     }
 }
