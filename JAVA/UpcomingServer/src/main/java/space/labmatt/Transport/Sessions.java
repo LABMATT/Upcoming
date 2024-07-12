@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Sessions {
 
-    List<Organization> organizationSessions;
+    public List<Organization> organizationSessions;
     public List<String> orgErrors = new ArrayList<>();
 
 

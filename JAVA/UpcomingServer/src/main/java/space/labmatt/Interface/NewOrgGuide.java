@@ -24,8 +24,6 @@ public class NewOrgGuide {
         while (!validName) {
             orgname = input.nextLine();
 
-            if()
-
         }
 
 

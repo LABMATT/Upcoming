@@ -38,7 +38,7 @@ public class CommandLine implements Runnable{
 
             switch (inputline) {
                 case "list":
-
+                    new ListOrgs(sessions);
                     break;
                 case "exit":
                     running = false;
