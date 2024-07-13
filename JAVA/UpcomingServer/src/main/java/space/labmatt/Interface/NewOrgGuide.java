@@ -1,17 +1,15 @@
 package space.labmatt.Interface;
 
+import space.labmatt.Tools.NewOrganization;
 import space.labmatt.Tools.ValidateString;
 import space.labmatt.Transport.Struts.Organization;
 
-import javax.swing.text.DateFormatter;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class NewOrgGuide {
 
-    public NewOrgGuide() {
-        // Guides a user though creating an orgination.
+    public NewOrgGuide(String path) {
+        // Guides a user though creating an origination.
 
         Scanner input = new Scanner(System.in);
 
@@ -26,22 +24,31 @@ public class NewOrgGuide {
 
         ValidateString validateString = new ValidateString();
 
-        Organization organization = new Organization();
-        organization.orgNAME = null;
+        String orgName = null;
+        String contacts = null;
 
         boolean validName = false;
         while (!validName) {
-            organization.orgNAME = input.nextLine();
+            orgName = input.nextLine();
 
-            validName = validateString.isValidStandard(organization.orgNAME);
+            validName = validateString.isValidStandard(orgName);
         }
 
+        System.out.print("New Org > Name Was (" + orgName + ").");
+        System.out.println("New Org > Contacts");
 
-        LocalDateTime localDateTime = LocalDateTime.now();
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        organization.dateCREATED = localDateTime.format(dateTimeFormatter);
+        boolean validContacts = false;
+        while (!validContacts) {
+            contacts = input.nextLine();
 
+            validContacts = validateString.isValidStandard(contacts);
+        }
 
+        System.out.print("New Org > Contacts: (" + contacts + ").");
 
+        NewOrganization newOrganization = new NewOrganization();
+        newOrganization.addOrganization(path, orgName, contacts);
+
+        System.out.println("== New organization complete. Returning to menu ==");
     }
 }

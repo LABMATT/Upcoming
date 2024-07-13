@@ -8,7 +8,7 @@ public class Help {
         System.out.println("Help:");
         System.out.println("list : lists all orgs");
         System.out.println("exit : closes program.");
-        System.out.println("add : adds new org");
+        System.out.println("new : adds new org");
         System.out.println("Help END");
     }
 }

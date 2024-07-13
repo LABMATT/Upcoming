@@ -4,6 +4,8 @@ import space.labmatt.Transport.Struts.Organization;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class NewOrganization {
@@ -12,14 +14,14 @@ public class NewOrganization {
     // Creates a new orginsation in the folder.
     // Convets name to lowercase and checks for iligle chars.
     // Gens the org a new ID.
-    public void addOrganization(String name, ProjectPath path) {
+    public void addOrganization(String path, String name, String contacts) {
 
         Organization org = new Organization();
 
 
         newRandom newRandom = new newRandom();
         String orgID = String.valueOf(newRandom.genrateRandom());
-        String orgPath = path.getPath() + File.separator + "upcomingServer" + File.separator + "organisation" + File.separator + orgID;
+        String orgPath = path + File.separator + "upcomingServer" + File.separator + "organisation" + File.separator + orgID;
         File orgLoc = new File(orgPath);
 
         // Check the file name doesnt exist already. If so then gen another one.
@@ -37,10 +39,9 @@ public class NewOrganization {
 
 
         // Create the current date
-        String patten = "yyyy/mm/dd";
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat(patten);
-        org.dateCREATED = sdf.format(date);
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        org.dateCREATED = localDateTime.format(dateTimeFormatter);
 
 
         // Creates the folders and saves data.

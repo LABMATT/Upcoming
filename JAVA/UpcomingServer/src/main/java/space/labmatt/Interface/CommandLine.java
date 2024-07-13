@@ -50,7 +50,10 @@ public class CommandLine implements Runnable{
                     new Errors(this.sessions);
                     break;
                 case "new":
-                    new NewOrgGuide();
+                    new NewOrgGuide(path);
+                    break;
+                case "edit":
+                    new EditOrg();
                     break;
                 default:
                     System.out.println("Unknown Command.");

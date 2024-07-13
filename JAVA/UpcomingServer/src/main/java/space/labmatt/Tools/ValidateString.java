@@ -6,12 +6,12 @@ public class ValidateString {
         // Compairs the each part of the input aginst what i would consider a standared exctable string.
         // This fex is letters numbers.
 
-        return false;
+        return true;
     }
 
     public boolean isValidCustom(String input) {
 
-        return false;
+        return true;
     }
 
     public String makeValidStandard(String input) {

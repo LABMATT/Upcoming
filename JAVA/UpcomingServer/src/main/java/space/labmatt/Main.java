@@ -34,10 +34,8 @@ public class Main {
 
 
         ProjectPath path = new ProjectPath("");
-        NewOrganization norg = new NewOrganization();
         //Cyrpt crypt = new Cyrpt(path);
 
-        norg.addOrganization("TestOr", path);
 
         // Load organizations into memory
         System.out.println("Loading Organizations into memory.");
