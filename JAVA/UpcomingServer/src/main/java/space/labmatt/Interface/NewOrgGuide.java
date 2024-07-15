@@ -20,7 +20,7 @@ public class NewOrgGuide {
         System.out.println("3. Creating an admin account.");
         System.out.println("If at any point you would like to cancel. Just don't save at the end when prompted.");
 
-        System.out.print("New Org > Enter Name: ");
+        System.out.println("New Org > Enter Name: ");
 
         ValidateString validateString = new ValidateString();
 
@@ -34,8 +34,8 @@ public class NewOrgGuide {
             validName = validateString.isValidStandard(orgName);
         }
 
-        System.out.print("New Org > Name Was (" + orgName + ").");
-        System.out.println("New Org > Contacts");
+        System.out.println("New Org > Name Was (" + orgName + ").");
+        System.out.println("New Org > Enter contacts EG (labmattcontact@gmail.com, otheremail@hotmail.com):");
 
         boolean validContacts = false;
         while (!validContacts) {
@@ -44,7 +44,8 @@ public class NewOrgGuide {
             validContacts = validateString.isValidStandard(contacts);
         }
 
-        System.out.print("New Org > Contacts: (" + contacts + ").");
+        System.out.println("New Org > Contacts: (" + contacts + ").");
+        System.out.println("New Org > Attempting to create Organization.");
 
         NewOrganization newOrganization = new NewOrganization();
         newOrganization.addOrganization(path, orgName, contacts);

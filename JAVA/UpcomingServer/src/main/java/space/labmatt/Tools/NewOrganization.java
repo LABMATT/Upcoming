@@ -1,8 +1,12 @@
 package space.labmatt.Tools;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import space.labmatt.Transport.Struts.Organization;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -31,17 +35,26 @@ public class NewOrganization {
         }
 
         org.orgID = orgID;
+        System.out.println("New Org > Org ID: " + orgID);
 
 
         // SanOrgName sanorgname = new sanorgname();
         // name = sanorgname.san(name);
         org.orgNAME = name;
+        System.out.println("New Org > Org Name: " + name);
 
 
         // Create the current date
         LocalDateTime localDateTime = LocalDateTime.now();
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         org.dateCREATED = localDateTime.format(dateTimeFormatter);
+        System.out.println("New Org > Org Date Created: " + org.dateCREATED);
+
+
+        // Contact details
+        org.orgCONTACTS = contacts;
+        System.out.println("New Org > Org Contacts: " + contacts);
+
 
 
         // Creates the folders and saves data.
@@ -72,6 +85,27 @@ public class NewOrganization {
 
             if(settings.mkdir()) {
                 subDIRs = false;
+            }
+        }
+
+
+        if(madeDIR) {
+            System.out.println("New Org > File structure created successfully.");
+
+            try {
+
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                String jsonOutput = gson.toJson(org);
+
+                FileWriter fileWriter = new FileWriter(orgPath + File.separator + "OrganisationMeta.json");
+                fileWriter.write(jsonOutput);
+                fileWriter.close();
+
+                System.out.println("New Org > Organization Meta written sucessfuly.");
+
+            } catch (IOException e) {
+
+                System.out.println("New Org > Error writing org meta data. " + e.getMessage());
             }
         }
 
