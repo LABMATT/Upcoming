@@ -53,7 +53,7 @@ public class CommandLine implements Runnable{
                     new NewOrgGuide(path);
                     break;
                 case "edit":
-                    new EditOrg();
+                    new EditOrg(sessions);
                     break;
                 default:
                     System.out.println("Unknown Command.");
