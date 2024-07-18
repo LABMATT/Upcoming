@@ -7,10 +7,8 @@ import space.labmatt.Transport.Struts.Organization;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class NewOrganization {
 
@@ -90,6 +88,8 @@ public class NewOrganization {
 
 
         if(madeDIR) {
+            // Write the orgmeta file to the org location.
+
             System.out.println("New Org > File structure created successfully.");
 
             try {
@@ -108,6 +108,5 @@ public class NewOrganization {
                 System.out.println("New Org > Error writing org meta data. " + e.getMessage());
             }
         }
-
     }
 }

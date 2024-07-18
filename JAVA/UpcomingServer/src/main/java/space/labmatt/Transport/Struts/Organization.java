@@ -14,4 +14,5 @@ public class Organization {
     public String dateCREATED = null;
     public String orgCONTACTS = null;
     public String rgLOG = null;
+    public boolean enabled = true;
 }

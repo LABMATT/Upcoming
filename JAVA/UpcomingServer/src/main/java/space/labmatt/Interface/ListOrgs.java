@@ -3,6 +3,8 @@ package space.labmatt.Interface;
 import space.labmatt.Transport.Sessions;
 import space.labmatt.Transport.Struts.Organization;
 
+import java.util.List;
+
 public class ListOrgs {
 
     public ListOrgs(Sessions sessions) {
@@ -10,19 +12,27 @@ public class ListOrgs {
 
         System.out.println("==List Orgs==");
 
-        if(sessions.organizationSessions == null || sessions.organizationSessions.isEmpty()) {
+        List<Organization> organizationSessions = sessions.getOrganizationSessions();
+
+        if(organizationSessions == null || organizationSessions.isEmpty()) {
 
             System.out.println("No organizations to show.");
             System.out.println("== END ==");
             return;
         }
 
-        for (Organization organization : sessions.organizationSessions) {
+        for (Organization organization : organizationSessions) {
 
-            System.out.println("ORG: Name:" + organization.orgNAME + " ID:" + organization.orgID + " Created:" + organization.dateCREATED + " Users:" + organization.accountList.size());
+            int users = 0;
+            if(organization.accountList != null && !organization.accountList.isEmpty()) {
+
+                users = organization.accountList.size();
+            }
+
+            System.out.println("ORG: Name:" + organization.orgNAME + " ID:" + organization.orgID + " Created:" + organization.dateCREATED + " Users:" + users);
         }
 
 
-        System.out.println("==END LIST: (" + sessions.organizationSessions.size() + ") ==");
+        System.out.println("=== END LIST: (" + organizationSessions.size() + ") === ");
     }
 }
